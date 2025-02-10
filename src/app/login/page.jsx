@@ -3,6 +3,7 @@ import Link from 'next/link';
 import React from 'react';
 import { signIn } from 'next-auth/react'; 
 import { useRouter, useSearchParams } from 'next/navigation';
+import { Suspense } from "react";
 import SocialLogin from '@/components/shared/SocialLogin/SocialLogin';
 
 const loginPage = () => {
@@ -26,6 +27,7 @@ const loginPage = () => {
         }
     }
     return (
+        <Suspense>
         <div className='flex justify-center items-center'>
             <div className='flex justify-center items-center flex-col mt-5 border-2 border-black w-1/2 p-10 rounded-xl'>
                 <h2 className='text-5xl font-bold text-center'>Sing In</h2>
@@ -43,6 +45,7 @@ const loginPage = () => {
                 <p>Don't have an acount? <Link href={'/register'} className='font-semibold text-orange-500'>Register</Link></p>
             </div>
         </div>
+        </Suspense>
     );
 };
 
