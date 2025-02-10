@@ -10,7 +10,7 @@ const myBookingsPage = () => {
     const email = session?.data?.user?.email;
     const [myBookings, setMyBookings] = useState([]);
     const handleDeleted = async(id) =>{
-        fetch(`http://localhost:3000/my-bookings/api/delete-booking/${id}`, {
+        fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/my-bookings/api/delete-booking/${id}`, {
             method: "DELETE"
         })
         .then(res => res.json())
@@ -19,7 +19,7 @@ const myBookingsPage = () => {
         })
     }
     useEffect( () =>{
-        fetch(`http://localhost:3000/my-bookings/api/${email}`)
+        fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/my-bookings/api/${email}`)
         .then(res => res.json())
         .then(data => setMyBookings(data))
     }, [session])

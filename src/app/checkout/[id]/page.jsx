@@ -27,7 +27,7 @@ const checkoutPage = ({params}) => {
             address: event.target.address.value,
             ...service
         }
-        const res = await fetch("http://localhost:3000/checkout/api/new-booking", {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/checkout/api/new-booking`, {
             method: "POST",
             headers: {
                 "content-type": "application/json"

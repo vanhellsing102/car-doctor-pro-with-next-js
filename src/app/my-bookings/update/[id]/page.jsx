@@ -14,7 +14,7 @@ const page = ({params}) => {
             phone: event.target.phone.value,
             address: event.target.address.value,
         }
-        fetch(`http://localhost:3000/my-bookings/api/delete-booking/${id}`, {
+        fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/my-bookings/api/delete-booking/${id}`, {
             method: "PATCH",
             headers: {
                 "content-type": "application/json"

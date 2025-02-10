@@ -1,5 +1,6 @@
 import { connectDB } from "@/lib/connectDB";
 import { ObjectId } from "mongodb";
+import { NextResponse } from "next/server";
 
 export const DELETE = async(request, {params}) =>{
     const id = params.id;
@@ -8,9 +9,9 @@ export const DELETE = async(request, {params}) =>{
     try{
         const filter = { _id: new ObjectId(id)}
         const result = await bookingCollection.deleteOne(filter);
-        return Response.json({message: "Deleted Successfully", result});
+        return NextResponse.json({message: "Deleted Successfully", result});
     }catch(error){
-        console.log(error);
+        return NextResponse.json({message: "no data"});
     }
 }
 
