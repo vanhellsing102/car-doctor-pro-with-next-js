@@ -4,11 +4,21 @@ const nextConfig = {
         remotePatterns: [
             {
                 protocol: 'https',
-                hostname: 'i.ibb.co',
+                hostname: '*',
                 pathname: '**',
             }
         ]
-    }
+    }, 
+    reactStrictMode: true,
+    experimental: {
+      appDir: true,
+    },
+    eslint: {
+      ignoreDuringBuilds: true,
+    },
 };
 
 export default nextConfig;
+
+
+  
